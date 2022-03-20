@@ -42,27 +42,80 @@ int main(int argc, char* argv[])
     SDL_RenderFillRect(renderer, &filled_rect);
 
     SDL_RenderPresent(renderer);*/
-    SDL_Texture* background = loadTexture("pexels-pixabay-268533.jpg",renderer);
-    SDL_RenderCopy(renderer,background,NULL,NULL);
+    SDL_Texture* background = loadTexture("Background.png",renderer);
+    SDL_Rect bgRect;
+    bgRect.x = 0;
+    bgRect.y = 0;
+    bgRect.w = SCREEN_WIDTH;
+    bgRect.h = SCREEN_HEIGHT;
+    SDL_RenderCopy(renderer,background,NULL,&bgRect);
 
-    SDL_Texture* logo = loadTexture("logo.jpg",renderer);
+    SDL_Texture* background_2 = loadTexture("Background.png",renderer);
+    SDL_Rect bgRect_2;
+    bgRect_2.x = -SCREEN_WIDTH;
+    bgRect_2.y = 0;
+    bgRect_2.w = SCREEN_WIDTH;
+    bgRect_2.h = SCREEN_HEIGHT;
+    SDL_RenderCopy(renderer,background,NULL,&bgRect_2);
+
+    SDL_Texture* logo = loadTexture("Idle (1).png",renderer);
     SDL_Rect logoRect;
     SDL_QueryTexture(logo,NULL,NULL,&logoRect.w,&logoRect.h);
 
     logoRect.x = 100;
-    logoRect.y = 100;
-    logoRect.w = logoRect.w /2.0;
-    logoRect.h = logoRect.h /2.0;
+    logoRect.y = 375;
+    logoRect.w = logoRect.w /5.0;
+    logoRect.h = logoRect.h /5.0;
 
-    SDL_Rect logoScr;
-    logoScr.x = 0;
-    logoScr.y = 0;
-    logoScr.w = logoRect.w /1.0;
-    logoScr.h = logoRect.h /1.0;
-
-    SDL_RenderCopy(renderer,logo,&logoScr,&logoRect);
+    SDL_RenderCopy(renderer,logo,NULL,&logoRect);
 
     SDL_RenderPresent(renderer);
+    SDL_Event e;
+    while (true) {
+        if ( SDL_WaitEvent(&e) == 0 ) SDL_Delay(50);
+        else if(e.type == SDL_QUIT ){
+            break;
+        }
+
+        else if(e.type == SDL_KEYDOWN){
+            cerr << "_" << e.key.keysym.sym <<"_" << endl;
+            switch(e.key.keysym.sym ){
+            case SDLK_UP:
+                logoRect.y -= 50;
+                logoRect.x += 50;
+                break;
+            case SDLK_DOWN:
+                logoRect.y += 50;
+                logoRect.x += 50;
+                break;
+            case SDLK_LEFT:
+                logoRect.x -= 50;
+                break;
+            case SDLK_RIGHT:
+                logoRect.x += 50;
+                break;
+            }
+        }
+            bgRect.x += 10;
+            bgRect_2.x += 10;
+            //logoRect.x += 50;
+            if(bgRect.x == SCREEN_WIDTH){
+                bgRect.x = -SCREEN_WIDTH;
+            }
+            if(bgRect_2.x == SCREEN_WIDTH){
+                bgRect_2.x = -SCREEN_WIDTH;
+            }
+            if(logoRect.x == SCREEN_WIDTH){
+                logoRect.x = 0;
+            }
+
+            SDL_RenderClear(renderer);
+            SDL_RenderCopy(renderer,background,NULL,&bgRect);
+            SDL_RenderCopy(renderer,background,NULL,&bgRect_2);
+            SDL_RenderCopy(renderer,logo,NULL,&logoRect);
+            SDL_RenderPresent(renderer);
+
+    }
 //end
     waitUntilKeyPressed();
     quitSDL(window, renderer);
