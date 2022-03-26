@@ -96,7 +96,7 @@ int main(int argc, char* argv[])
                 break;
             }
         }
-            bgRect.x += 10;
+           /*bgRect.x += 10;
             bgRect_2.x += 10;
             //logoRect.x += 50;
             if(bgRect.x == SCREEN_WIDTH){
@@ -107,7 +107,7 @@ int main(int argc, char* argv[])
             }
             if(logoRect.x == SCREEN_WIDTH){
                 logoRect.x = 0;
-            }
+            }*/
 
             SDL_RenderClear(renderer);
             SDL_RenderCopy(renderer,background,NULL,&bgRect);
