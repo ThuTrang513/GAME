@@ -32,7 +32,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="base_object.cpp" />
+		<Unit filename="base_object.h" />
+		<Unit filename="common_code.cpp" />
+		<Unit filename="common_code.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="main_object.cpp" />
+		<Unit filename="main_object.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
