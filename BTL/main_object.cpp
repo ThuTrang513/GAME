@@ -19,6 +19,7 @@ main_object::~main_object(){
     }
 }
 void main_object::handelInput(SDL_Event e){
+
     if(e.type == SDL_KEYDOWN){
         cerr << "_" << e.key.keysym.sym <<"_" << endl;
         switch(e.key.keysym.sym ){
@@ -37,7 +38,7 @@ void main_object::handelInput(SDL_Event e){
 }
 void main_object::handleMove(){
     main_.rect.y += y_val;
-    if(main_.rect.y > 375 || main_.rect.y < 275){
+    if(main_.rect.y > 385 || main_.rect.y < 275){
         main_.rect.y -= y_val;
     }
 }

@@ -11,7 +11,7 @@
 	<SDL.h>
 	<SDL_image.h>
 
-1648380622 source:e:\github\btl\game\game\btl\main.cpp
+1648706361 source:e:\github\btl\game\game\btl\main.cpp
 	"common_code.h"
 	"base_object.h"
 	"main_object.h"
@@ -21,10 +21,16 @@
 
 1648261041 e:\github\btl\game\game\btl\main_object.h
 
-1648377177 source:e:\github\btl\game\game\btl\main_object.cpp
+1648705338 source:e:\github\btl\game\game\btl\main_object.cpp
 	"common_code.h"
 	"base_object.h"
 	"main_object.h"
 
-1648380810 e:\github\btl\game\game\btl\threaten.h
+1648707267 e:\github\btl\game\game\btl\threaten.h
+
+1648707192 source:e:\github\btl\game\game\btl\threaten.cpp
+	"common_code.h"
+	"Threaten.h"
+	<cstdlib>
+	<time.h>
 

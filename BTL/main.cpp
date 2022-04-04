@@ -24,10 +24,11 @@ int main(int argc, char* argv[])
     //THREATEN OBJECT
     threaten_object threaten_;
     threaten_.draw(renderer);
+    //threaten_.thr_object.x = 2000;
     // code
     SDL_Event e;
     bool is_quit = false;
-    int bg_x = -2;
+    int bg_x = -3;
     while(!is_quit){
         while(SDL_PollEvent(&e)){
             if(e.type == SDL_QUIT){
@@ -47,9 +48,13 @@ int main(int argc, char* argv[])
         SDL_RenderClear(renderer);
         background_1.show(renderer);
         background_2.show(renderer);
+
+        for(int i = 0; i < 3; i++){
+            threaten_.thr_object[i].x -= 7;
+        }
+        threaten_.draw(renderer);
         man.main_.show(renderer);
         man.handleMove();
-        threaten_.draw(renderer);
         SDL_RenderPresent(renderer);
     }
 //end
