@@ -1,6 +1,7 @@
 #ifndef main_objec__h
 #define main_objec__h
 
+#include "base_object.h"
 struct main_object{
     base_object main_;
     int x_val;

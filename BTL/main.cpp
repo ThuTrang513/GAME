@@ -2,6 +2,7 @@
 #include "base_object.h"
 #include "main_object.h"
 #include "Threaten.h"
+#include<time.h>
 
 int main(int argc, char* argv[])
 {
@@ -24,7 +25,6 @@ int main(int argc, char* argv[])
     //THREATEN OBJECT
     threaten_object threaten_;
     threaten_.draw(renderer);
-    //threaten_.thr_object.x = 2000;
     // code
     SDL_Event e;
     bool is_quit = false;
@@ -49,8 +49,20 @@ int main(int argc, char* argv[])
         background_1.show(renderer);
         background_2.show(renderer);
 
-        for(int i = 0; i < 3; i++){
+        for(int i = 0; i < 2; i++){
             threaten_.thr_object[i].x -= 7;
+            if(threaten_.thr_object[i].x <= 120 && threaten_.thr_object[i].x >= 75&& man.main_.rect.y >= 335){
+                is_quit = true;
+            }
+            if(threaten_.thr_object[i].x + 7 <= 0){
+                srand((int) time(0));
+                if(i == 0){
+                   threaten_.thr_object[i].x = 1000 + rand()%500;
+                }
+                else{
+                    threaten_.thr_object[i].x = (threaten_.thr_object[i-1].x + 400)+  rand()%500;
+                }
+            }
         }
         threaten_.draw(renderer);
         man.main_.show(renderer);
