@@ -19,7 +19,7 @@ int main(int argc, char* argv[])
     background_2.rect.x = SCREEN_WIDTH;
     background_2.show(renderer);
     // MAIN OBJECT
-    main_object man("Idle (1).png",renderer);
+    main_object man("creature-sheet (1).png",renderer);
     man.main_.show(renderer);
     SDL_RenderPresent(renderer);
     //THREATEN OBJECT
@@ -28,7 +28,8 @@ int main(int argc, char* argv[])
     // code
     SDL_Event e;
     bool is_quit = false;
-    int bg_x = -3;
+    int bg_x = - 3;
+    int index_frame = 0;
     while(!is_quit){
         while(SDL_PollEvent(&e)){
             if(e.type == SDL_QUIT){
@@ -48,10 +49,10 @@ int main(int argc, char* argv[])
         SDL_RenderClear(renderer);
         background_1.show(renderer);
         background_2.show(renderer);
-
+        // threatern_move
         for(int i = 0; i < 2; i++){
             threaten_.thr_object[i].x -= 7;
-            if(threaten_.thr_object[i].x <= 120 && threaten_.thr_object[i].x >= 75&& man.main_.rect.y >= 335){
+            if(threaten_.thr_object[i].x <= 120 && threaten_.thr_object[i].x >= 75&& man.main_.rect.y >= 420){
                 is_quit = true;
             }
             if(threaten_.thr_object[i].x + 7 <= 0){
@@ -65,7 +66,11 @@ int main(int argc, char* argv[])
             }
         }
         threaten_.draw(renderer);
-        man.main_.show(renderer);
+        man.showoff(renderer,index_frame);
+        index_frame ++;
+        if(index_frame > 21){
+            index_frame = 0;
+        }
         man.handleMove();
         SDL_RenderPresent(renderer);
     }

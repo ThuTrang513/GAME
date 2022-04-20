@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1648291597 source:e:\github\btl\game\game\btl\base_object.cpp
+1650451007 source:e:\github\btl\game\game\btl\base_object.cpp
 	"common_code.h"
 	"base_object.h"
 
@@ -11,19 +11,19 @@
 	<SDL.h>
 	<SDL_image.h>
 
-1649316781 source:e:\github\btl\game\game\btl\main.cpp
+1650454427 source:e:\github\btl\game\game\btl\main.cpp
 	"common_code.h"
 	"base_object.h"
 	"main_object.h"
 	"Threaten.h"
 	<time.h>
 
-1648259414 e:\github\btl\game\game\btl\base_object.h
+1650450988 e:\github\btl\game\game\btl\base_object.h
 
-1649122973 e:\github\btl\game\game\btl\main_object.h
+1650453734 e:\github\btl\game\game\btl\main_object.h
 	"base_object.h"
 
-1648705338 source:e:\github\btl\game\game\btl\main_object.cpp
+1650454435 source:e:\github\btl\game\game\btl\main_object.cpp
 	"common_code.h"
 	"base_object.h"
 	"main_object.h"

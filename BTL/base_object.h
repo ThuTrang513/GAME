@@ -3,6 +3,7 @@
  struct base_object{
      SDL_Texture* object;
      SDL_Rect rect;
+     SDL_Rect * srcrect;
 
      base_object();
      ~base_object();
