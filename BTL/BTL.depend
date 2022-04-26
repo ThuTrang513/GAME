@@ -3,15 +3,16 @@
 	"common_code.h"
 	"base_object.h"
 
-1648254848 source:e:\github\btl\game\game\btl\common_code.cpp
+1650521133 source:e:\github\btl\game\game\btl\common_code.cpp
 	"common_code.h"
 
-1648254828 e:\github\btl\game\game\btl\common_code.h
+1650521110 e:\github\btl\game\game\btl\common_code.h
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>
+	<SDL_mixer.h>
 
-1650454427 source:e:\github\btl\game\game\btl\main.cpp
+1650542193 source:e:\github\btl\game\game\btl\main.cpp
 	"common_code.h"
 	"base_object.h"
 	"main_object.h"
@@ -20,18 +21,19 @@
 
 1650450988 e:\github\btl\game\game\btl\base_object.h
 
-1650453734 e:\github\btl\game\game\btl\main_object.h
+1650521272 e:\github\btl\game\game\btl\main_object.h
 	"base_object.h"
 
-1650454435 source:e:\github\btl\game\game\btl\main_object.cpp
+1650521307 source:e:\github\btl\game\game\btl\main_object.cpp
 	"common_code.h"
 	"base_object.h"
 	"main_object.h"
 
-1649316278 e:\github\btl\game\game\btl\threaten.h
+1650516343 e:\github\btl\game\game\btl\threaten.h
 	"main_object.h"
+	"base_object.h"
 
-1649316762 source:e:\github\btl\game\game\btl\threaten.cpp
+1650516991 source:e:\github\btl\game\game\btl\threaten.cpp
 	"common_code.h"
 	"Threaten.h"
 	"main_object.h"

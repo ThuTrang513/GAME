@@ -28,13 +28,14 @@ main_object::~main_object(){
         frame = NULL;
     }
 }
-void main_object::handelInput(SDL_Event e){
+void main_object::handelInput(SDL_Event e,Mix_Chunk* jump_sound){
 
     if(e.type == SDL_KEYDOWN){
         cerr << "_" << e.key.keysym.sym <<"_" << endl;
         switch(e.key.keysym.sym ){
         case SDLK_UP:
             y_val = -5;
+            Mix_PlayChannel(-1,jump_sound,0);
             break;
         }
     }
@@ -48,6 +49,7 @@ void main_object::handelInput(SDL_Event e){
 }
 void main_object::handleMove(){
     main_.rect.y += y_val;
+
     if(main_.rect.y > 470 || main_.rect.y < 275){
         main_.rect.y -= y_val;
     }

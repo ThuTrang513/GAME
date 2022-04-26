@@ -10,7 +10,7 @@ struct main_object{
 
     main_object(const char * path, SDL_Renderer* renderer);
     ~main_object();
-    void handelInput(SDL_Event e);
+    void handelInput(SDL_Event e,Mix_Chunk* jump_sound);
     void handleMove();
     void showoff(SDL_Renderer* renderer,int index_frame);
 };
