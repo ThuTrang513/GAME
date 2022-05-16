@@ -1,4 +1,3 @@
-#include "common_code.h"
 #include "base_object.h"
 base_object::base_object(){
     object = NULL;
@@ -21,4 +20,10 @@ void base_object::show(SDL_Renderer* renderer){
     if(object != NULL){
         SDL_RenderCopy(renderer,object,srcrect,&rect);
     }
+}
+void base_object::set_rect(int x_, int y_, int h_, int w_){
+    rect.x = x_;
+    rect.y = y_;
+    rect.w = h_;
+    rect.h = w_;
 }

@@ -32,6 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Gift.cpp" />
+		<Unit filename="Gift.h" />
+		<Unit filename="Text.cpp" />
+		<Unit filename="Text.h" />
 		<Unit filename="Threaten.cpp" />
 		<Unit filename="Threaten.h" />
 		<Unit filename="base_object.cpp" />

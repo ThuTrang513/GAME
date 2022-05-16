@@ -35,6 +35,9 @@ void initSDL(SDL_Window* &window, SDL_Renderer* &renderer)
     if(Mix_OpenAudio(22050,MIX_DEFAULT_FORMAT,2,4096) == -1){
         logSDLError(std::cout, "CreateRenderer", true);
     }
+    if(TTF_Init()== -1){
+        logSDLError(std::cout, "CreateRenderer", true);
+    }
 }
 
 void quitSDL(SDL_Window* window, SDL_Renderer* renderer)
@@ -52,6 +55,7 @@ void waitUntilKeyPressed()
              (e.type == SDL_KEYDOWN || e.type == SDL_QUIT) )
             return;
         SDL_Delay(100);
+        break;
     }
 }
 
@@ -70,4 +74,145 @@ SDL_Texture* loadTexture( string path, SDL_Renderer* renderer)
         SDL_FreeSurface( loadedSurface );
     }
     return newTexture;
+}
+bool check_mouse(int xm, int ym,SDL_Rect menu_text){
+    if( xm >= menu_text.x &&  xm <= menu_text.x + menu_text.w &&
+        ym >= menu_text.y &&  ym <= menu_text.y + menu_text.h){
+        return 1;
+    }
+    return 0;
+}
+
+bool Menu_show(SDL_Renderer* &renderer, const char* path_text){
+    base_object menu_bg;
+    menu_bg.load("menu.jpg",renderer);
+    menu_bg.show(renderer);
+
+    text_object menu_text[2];
+    menu_text[1].set_create("PLAY GAME",300,SCREEN_HEIGHT/2,30,200);
+    menu_text[1].set_font(path_text);
+    menu_text[1].createGameText(renderer);
+
+    menu_text[0].set_create("EXIT",300,SCREEN_HEIGHT/2 + 50 ,30,100);
+    menu_text[0].set_font(path_text);
+    menu_text[0].createGameText(renderer);
+
+    SDL_Event e_m;
+    int ym = 0;
+    int xm = 0;
+
+    while(true){
+
+        while(SDL_PollEvent(&e_m)){
+            switch (e_m.type){
+            case SDL_QUIT:
+                return 0;
+            case SDL_MOUSEMOTION:
+                {
+                    xm = e_m.motion.x;
+                    ym = e_m.motion.y;
+                    for(int i = 0; i < 2; i++){
+                        if(check_mouse(xm, ym,menu_text[i].rect)){
+                            menu_text[i].set_color({0,0,0});
+                        }
+                        else{
+                            menu_text[i].set_color({255,255,255});
+                        }
+                    }
+                }
+                break;
+            case SDL_MOUSEBUTTONDOWN:
+                {
+                    xm = e_m.motion.x;
+                    ym = e_m.motion.y;
+                    for(int i = 0; i < 2; i++){
+                        if(check_mouse(xm, ym,menu_text[i].rect)){
+                            menu_text[i].set_color({0,0,0});
+                            return i;
+                        }
+                    }
+                }
+                break;
+            default:
+                break;
+            }
+        }
+        menu_bg.show(renderer);
+        for(int i = 0; i < 2; i++){
+            menu_text[i].createGameText(renderer);
+        }
+
+        SDL_RenderPresent(renderer);
+    }
+}
+
+bool End_show(SDL_Renderer* &renderer, const char* path_text){
+    base_object menu_bg;
+    menu_bg.load("menu.jpg",renderer);
+    menu_bg.show(renderer);
+
+    text_object menu_text[2];
+    menu_text[1].set_create("Continue",300,SCREEN_HEIGHT/2,30,200);
+    menu_text[1].set_font(path_text);
+    menu_text[1].createGameText(renderer);
+
+    menu_text[0].set_create("EXIT",300,SCREEN_HEIGHT/2 + 50 ,30,100);
+    menu_text[0].set_font(path_text);
+    menu_text[0].createGameText(renderer);
+
+    SDL_Event e_m;
+    int ym = 0;
+    int xm = 0;
+
+    while(true){
+
+        while(SDL_PollEvent(&e_m)){
+            switch (e_m.type){
+            case SDL_QUIT:
+                return 0;
+            case SDL_MOUSEMOTION:
+                {
+                    xm = e_m.motion.x;
+                    ym = e_m.motion.y;
+                    for(int i = 0; i < 2; i++){
+                        if(check_mouse(xm, ym,menu_text[i].rect)){
+                            menu_text[i].set_color({0,0,0});
+                        }
+                        else{
+                            menu_text[i].set_color({255,255,255});
+                        }
+                    }
+                    cout << endl;
+                }
+                break;
+            case SDL_MOUSEBUTTONDOWN:
+                {
+                    xm = e_m.motion.x;
+                    ym = e_m.motion.y;
+                    for(int i = 0; i < 2; i++){
+                        if(check_mouse(xm, ym,menu_text[i].rect)){
+                            menu_text[i].set_color({0,0,0});
+                            return i;
+                        }
+                    }
+                }
+                break;
+            default:
+                break;
+            }
+        }
+        menu_bg.show(renderer);
+        for(int i = 0; i < 2; i++){
+            menu_text[i].createGameText(renderer);
+        }
+
+        SDL_RenderPresent(renderer);
+    }
+}
+void GAME_OVER(SDL_Renderer* &renderer, const char* path_text){
+    text_object game_over;
+    game_over.set_create("GAME OVER",SCREEN_WIDTH /2 - 150,SCREEN_HEIGHT/2,50,300);
+    game_over.set_color({0,0,0});
+    game_over.set_font(path_text);
+    game_over.createGameText(renderer);
 }

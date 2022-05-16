@@ -8,11 +8,6 @@ struct threaten_object{
     //~threaten_object();
     void draw(SDL_Renderer* renderer);
 };
-/*struct threaten_act{
-    threaten_object;s
-    int x;
-    int y;
 
-};*/
 #endif // _threaten__H
 
