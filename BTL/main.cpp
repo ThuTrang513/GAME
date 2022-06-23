@@ -103,13 +103,14 @@ int main(int argc, char* argv[])
         // threatern_move
         for(int i = 0; i < 2; i++){
             threaten_.thr_object[i].rect.x -= feature_step;
-            if(threaten_.thr_object[i].rect.x <= 120 && threaten_.thr_object[i].rect.x >= 75 && man.main_.rect.y >= 290 && num != 3){
+            if(threaten_.thr_object[i].rect.x <= 120 && threaten_.thr_object[i].rect.x >= 75 && man.main_.rect.y >= 295 && num != 3){
                 is_quit = true;
                 GAME_OVER(renderer,path_text);
                 SDL_RenderPresent(renderer);
                 SDL_Delay(1000);
             }
-            if(threaten_.thr_object[i].rect.x <= 75 && threaten_.thr_object[i].rect.x >= 68){
+            if(threaten_.thr_object[i].rect.x <= 75 && threaten_.thr_object[i].rect.x > 70){
+                cout << threaten_.thr_object[i].rect.x << " ";
                 mark_val ++;
             }
             if(threaten_.thr_object[i].rect.x + feature_step < 0){

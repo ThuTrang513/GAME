@@ -2,7 +2,7 @@
 1652579319 source:e:\github\btl\game\game\btl\base_object.cpp
 	"base_object.h"
 
-1652739303 source:e:\github\btl\game\game\btl\common_code.cpp
+1652741879 source:e:\github\btl\game\game\btl\common_code.cpp
 	"common_code.h"
 
 1652715521 e:\github\btl\game\game\btl\common_code.h
@@ -13,7 +13,7 @@
 	<SDL_ttf.h>
 	"Text.h"
 
-1652720311 source:e:\github\btl\game\game\btl\main.cpp
+1652748369 source:e:\github\btl\game\game\btl\main.cpp
 	"common_code.h"
 	"base_object.h"
 	"main_object.h"
@@ -45,7 +45,7 @@
 	<cstdlib>
 	<time.h>
 
-1652715314 source:e:\github\btl\game\game\btl\text.cpp
+1652741176 source:e:\github\btl\game\game\btl\text.cpp
 	"Text.h"
 
 1652715302 e:\github\btl\game\game\btl\text.h
@@ -54,12 +54,12 @@
 	"base_object.h"
 	<SDL_ttf.h>
 
-1652720118 source:e:\github\btl\game\game\btl\gift.cpp
+1652739722 source:e:\github\btl\game\game\btl\gift.cpp
 	"base_object.h"
 	<cstring>
 	"Gift.h"
 
-1652719931 e:\github\btl\game\game\btl\gift.h
+1652739491 e:\github\btl\game\game\btl\gift.h
 	"main_object.h"
 
 1652625720 source:e:\github\btl\game\game\btl\gift_object.cpp

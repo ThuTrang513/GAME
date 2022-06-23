@@ -11,7 +11,7 @@ void Gift_object::move_gift(int step,int mark_val, base_object plane){
     if(image.rect.x >= -100){
         image.rect.x -= step;
     }
-    else if(mark_val % 20 == 0 && mark_val > 0 && mark_val % 7 != 0){
+    else if(mark_val % 10 == 0 && mark_val > 0 && mark_val % 7 != 0){
         if(plane.rect.x >= 670 && plane.rect.x <= 790){
             image.rect.x = SCREEN_WIDTH + 500;
         }

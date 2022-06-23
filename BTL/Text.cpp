@@ -15,7 +15,7 @@ void text_object::set_color(SDL_Color text_color_){
 }
 
 void text_object::set_font(const char* path_text){
-    font_text_ = TTF_OpenFont(path_text,15);
+    font_text_ = TTF_OpenFont(path_text,rect.h);
 }
 
 void text_object::createGameText(SDL_Renderer* renderer ){
@@ -23,6 +23,7 @@ void text_object::createGameText(SDL_Renderer* renderer ){
     if(font_text_){
       surface_ = TTF_RenderText_Solid(font_text_,str.c_str(),text_color);
     }
+    else cout << "error";
     if(surface_ ){
         t_object = SDL_CreateTextureFromSurface(renderer,surface_);
         /*width_= surface_.w;
@@ -30,8 +31,9 @@ void text_object::createGameText(SDL_Renderer* renderer ){
 
         SDL_FreeSurface(surface_);
     }
+    else cout << "error";
     if(t_object != NULL){
         SDL_RenderCopy(renderer,t_object,NULL,&rect);
     }
-
+    else cout << "error";
 }

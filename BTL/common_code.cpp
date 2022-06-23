@@ -212,7 +212,7 @@ bool End_show(SDL_Renderer* &renderer, const char* path_text){
 void GAME_OVER(SDL_Renderer* &renderer, const char* path_text){
     text_object game_over;
     game_over.set_create("GAME OVER",SCREEN_WIDTH /2 - 150,SCREEN_HEIGHT/2,50,300);
-    game_over.set_color({0,0,0});
+    game_over.set_color({128,0,0});
     game_over.set_font(path_text);
     game_over.createGameText(renderer);
 }
